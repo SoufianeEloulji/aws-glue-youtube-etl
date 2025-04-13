@@ -1,46 +1,69 @@
-# aws-glue-youtube-etl
-# 📺 AWS Glue ETL - YouTube Trending Data
+# 📊 Data Engineering Project - YouTube Trending Analytics
 
-Ce projet met en œuvre un pipeline ETL à l'aide de **AWS Glue** pour traiter les données brutes de tendances YouTube et les stocker dans **Amazon S3** en format **Parquet**, partitionné par **région**.
+> Projet inspiré du tutoriel complet de Darshil Parmar : [YouTube Tutorial](https://youtu.be/yZKJFKu49Dk)
+
+## 🔍 Vue d'ensemble
+
+Ce projet a pour objectif de construire un pipeline pour l’analyse des vidéos tendances sur YouTube. Il s'appuie sur des services AWS serverless pour collecter, transformer, stocker et analyser des données à grande échelle.
+
+---
+## 🎯 Objectifs du projet
+
+1. **Ingestion** de données multi-sources
+2. **Nettoyage & Transformation** des données brutes (ETL avec AWS Glue)
+3. Stockage dans un **Data Lake centralisé (Amazon S3)**
+4. **Scalabilité** et performances grâce aux services serverless
+5. Hébergement **Cloud (AWS)** pour un traitement distribué
+6. **Visualisation & Reporting** via Amazon QuickSight
 
 ---
 
-## 🔧 Technologies utilisées
+## 🧱 Services AWS utilisés
 
-- AWS Glue (Spark / PySpark)
-- AWS S3
-- AWS Glue Catalog
-- AWS Athena (optionnel)
-- Python
-
----
-
-## 📂 Structure
-
-- `glue_jobs/etl_youtube_job.py` : le script principal du Glue Job.
+| Service         | Rôle dans le projet                                  |
+|-----------------|-------------------------------------------------------|
+| **S3**          | Stockage brut (raw), cleansed et curated              |
+| **Glue**        | Nettoyage, transformation, catalogage des données     |
+| **Lambda**      | Déclenchement de l’ETL à l’arrivée de nouveaux fichiers |
+| **Athena**      | Requêtes SQL sur le Data Lake                         |
+| **QuickSight**  | Tableaux de bord interactifs                          |
+| **IAM**         | Sécurité et contrôle d’accès                          |
 
 ---
 
-## 🚀 Pipeline ETL
+## 🗃️ Données utilisées
 
-1. Lecture des données depuis le Glue Data Catalog (`db_youtube_raw.raw_statistics`)
-2. Filtrage par région (`ca`, `gb`, `us`)
-3. Mapping des colonnes + nettoyage
-4. Écriture dans un bucket S3 au format Parquet, partitionné par `region`
+Dataset Kaggle sur les vidéos tendances de YouTube :
 
----
+📦 [YouTube Trending Dataset](https://www.kaggle.com/datasets/datasnaek/youtube-new)
 
-## ✅ Exécution
-
-Ce script est conçu pour être lancé **via AWS Glue Job** (en Spark/Python).
+Ce jeu de données contient :
+- Informations sur les vidéos : titre, catégorie, vues, likes, dislikes...
+- Données par pays : `us`, `ca`, `gb`, etc.
+- Un JSON complémentaire décrivant les catégories
 
 ---
 
-## 📁 Données
+## ⚙️ Architecture du projet
 
-Les données brutes YouTube doivent être enregistrées dans le **Data Catalog AWS Glue** avant l’exécution.
+![Architecture](architecture.jpeg)
 
 ---
 
-## 📌 Exemple de chemin de sortie S3
+## 📌 Étapes techniques
+
+1. Upload des fichiers dans des bucket **s3**
+2. Déclenchement automatique via **AWS Lambda**
+3. Traitement des données avec **AWS Glue Job (PySpark)** :
+   - Mapping des types
+   - Suppression des champs nuls
+   - Partitionnement par région
+   - Format **Parquet**
+4. Stockage dans le bucket **cleansed**
+5. Exploration via **Athena**
+6. Visualisation via **QuickSight**
+
+---
+
+## 📁 Arborescence du projet
 
