@@ -59,7 +59,7 @@ Ce jeu de données contient :
    - Suppression des champs nuls
    - Partitionnement par région
    - Format **Parquet**
-4. Stockage dans le bucket **cleansed**
+4. Stockage dans le bucket **cleaned**
 5. Exploration via **Athena**
 6. Visualisation via **QuickSight**
 
