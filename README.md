@@ -46,7 +46,7 @@ Ce jeu de données contient :
 
 ## ⚙️ Architecture du projet
 
-![Architecture](architecture.jpeg)
+![Architecture](Architecture.png)
 
 ---
 
