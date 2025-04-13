@@ -62,8 +62,3 @@ Ce jeu de données contient :
 4. Stockage dans le bucket **cleaned**
 5. Exploration via **Athena**
 6. Visualisation via **QuickSight**
-
----
-
-## 📁 Arborescence du projet
-
