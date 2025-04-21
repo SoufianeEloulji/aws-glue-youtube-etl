@@ -1,13 +1,13 @@
-# 📊 Data Engineering Project - YouTube Trending Analytics
+#  Data Engineering Project - YouTube Trending Analytics
 
 > Projet inspiré du tutoriel complet de Darshil Parmar : [YouTube Tutorial](https://youtu.be/yZKJFKu49Dk)
 
-## 🔍 Vue d'ensemble
+##  Vue d'ensemble
 
 Ce projet a pour objectif de construire un pipeline pour l’analyse des vidéos tendances sur YouTube. Il s'appuie sur des services AWS serverless pour collecter, transformer, stocker et analyser des données à grande échelle.
 
 ---
-## 🎯 Objectifs du projet
+##  Objectifs du projet
 
 1. **Ingestion** de données multi-sources
 2. **Nettoyage & Transformation** des données brutes (ETL avec AWS Glue)
@@ -18,7 +18,7 @@ Ce projet a pour objectif de construire un pipeline pour l’analyse des vidéos
 
 ---
 
-## 🧱 Services AWS utilisés
+##  Services AWS utilisés
 
 | Service         | Rôle dans le projet                                  |
 |-----------------|-------------------------------------------------------|
@@ -31,11 +31,11 @@ Ce projet a pour objectif de construire un pipeline pour l’analyse des vidéos
 
 ---
 
-## 🗃️ Données utilisées
+##  Données utilisées
 
 Dataset Kaggle sur les vidéos tendances de YouTube :
 
-📦 [YouTube Trending Dataset](https://www.kaggle.com/datasets/datasnaek/youtube-new)
+ [YouTube Trending Dataset](https://www.kaggle.com/datasets/datasnaek/youtube-new)
 
 Ce jeu de données contient :
 - Informations sur les vidéos : titre, catégorie, vues, likes, dislikes...
@@ -44,13 +44,13 @@ Ce jeu de données contient :
 
 ---
 
-## ⚙️ Architecture du projet
+##  Architecture du projet
 
 ![Architecture](Architecture.png)
 
 ---
 
-## 📌 Étapes techniques
+##  Étapes techniques
 
 1. Upload des fichiers dans des bucket **s3**
 2. Déclenchement automatique via **AWS Lambda**
